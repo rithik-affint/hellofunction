@@ -1,6 +1,8 @@
 # main.py
 from flask import Request
+import functions_framework
 
+@functions_framework.http
 def hello_http(request: Request):
     data = request.get_json(silent=True) or {}
     name = request.args.get("name") or data.get("name") or "World"
